@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fabbbb;
+  }
+  h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  div {
+    font-size: large;
+    text-align: center;
+    margin-top: 10px;
+  }
