@@ -1,3 +1,5 @@
+//Konstruktørfunktion, der opretter et album-objekt med fire egenskaber
+
 function Album(artist, album, totalTracks, productionYear) {
   this.artist = artist;
   this.album = album;
@@ -5,6 +7,8 @@ function Album(artist, album, totalTracks, productionYear) {
   this.productionYear = productionYear;
 }
 
+//Tilføjer en div til en HTML-container med id=parentid
+//Denne div indeholder albumdetaljer (kunstner, titel, antal sange og udgivelsesår)
 
 function addDivWithAlbum(album, parentid) {
   let parentElement = document.getElementById(parentid);
@@ -24,10 +28,13 @@ function addDivWithAlbum(album, parentid) {
   parentElement.innerHTML = parentElement.innerHTML + elementToAdd;
 }
 
+//Henter data fra JSON filen
 fetchContent("Data/albums.json").then((albums) => {
 
+//Laver et tomt array  
   let albumObjects = [];
 
+//Laver et for-loop og løber datae for JSON igennem  
   for (let i = 0; i < albums.length; i++) {
     const album = new Album(
       albums[i].artistName,
@@ -35,10 +42,16 @@ fetchContent("Data/albums.json").then((albums) => {
       albums[i].trackList.length,
       albums[i].productionYear
     );
+
+//Arrayet indeholder en push-metode, som tilføjer argumentet   
     albumObjects.push(album);
   }
 
-  albumObjects.forEach(function (a) {
+//Kalder funktionen for at tilføje en div til html-siden
+//Laver et for-each loop  
+//Kalder på addDivWithAlbum
+  albumObjects.forEach(
+    function (a) {
     addDivWithAlbum(a, "content");
   });
 });
